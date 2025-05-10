@@ -9,8 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
   
     loadComponent("#sidebar-container", "components/sidebar.html");
     loadComponent("#header-container", "components/header.html");
-    loadComponent("#overview-cards", "components/overview-cards.html");
-    loadComponent("#analytics-container", "components/analytics-section.html");
+    loadComponent("#overview", "components/overview-cards.html");
+    loadComponent("#analytics", "components/analytics-section.html");
   
     console.log("hello from scripts");
   });
