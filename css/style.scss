@@ -123,19 +123,27 @@ body {
   justify-content: space-between;
   align-items: center;
   gap: 24px;
-  margin-top: 32px;
+  // margin-top: 32px;
 }
 
 .search-col, .user-overview-col {
   background-color: var(--white-color);
   padding: 20px;
   border-radius: 100px;
-  margin-bottom: 20px;
+  margin: 32px 0;
 }
 
 .search-col{
   // width: 772px;
   flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  img{
+    width: 16px;
+    height: 16px;
+  }
 }
 
 .user-overview-col{
@@ -143,19 +151,21 @@ body {
   justify-content: space-between;
   align-items: center;
   width: 350px;
+  height: 64px;
 }
 
 .notification-icon{
-  width: 66;
-  height: 48;
   border-radius: 100px;
   border: 1px solid var(--border-color);
-  padding: 12px 18px;
+  padding: 12px;
 
 }
 
 .user-detail{
+  display: flex;
+  justify-content: center;
   align-items: center;
+  gap: 8px;
 }
 
 /* End of Header styling */
@@ -204,7 +214,7 @@ body {
         .icon-section{
           border: 1px solid var(--border-color);
           border-radius: 100px;
-          padding: 8px;
+          padding: 8px 10px;
 
         }
 
