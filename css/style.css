@@ -2,7 +2,7 @@
 :root {
   --body-bg-color: #F7F7FB;
   --white-color: #ffffff;
-  --sidebar-active-blue: #4745A4;
+  --primary-color: #4745A4;
   --text-dark: #1E1E1E;
   --text-gray: #7C7C8D;
   --border-color: #DEDEDE;
@@ -86,7 +86,7 @@ body {
   top: 0;
   width: 5px;
   height: 100%;
-  background-color: var(--sidebar-active-blue);
+  background-color: var(--primary-color);
   border-radius: 0 4px 4px 0;
 }
 
@@ -108,7 +108,7 @@ body {
   font-weight: 600;
 }
 
-hr {
+.sidebar hr {
   width: 219;
   opacity: 0.3;
   border-width: 1px;
@@ -156,10 +156,163 @@ hr {
 }
 
 /* End of Header styling */
-/* Overview Section Styling */
+/* Overview card styling */
+#overview-card {
+  display: flex;
+  gap: 2rem;
+  font-family: "Poppins", sans-serif;
+}
+#overview-card .overview {
+  flex: 2;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 14px;
+}
+#overview-card .overview h2 {
+  margin-bottom: 1rem;
+}
+#overview-card .overview .overview-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  padding: 0;
+}
+#overview-card .overview .overview-cards .card {
+  padding: 20px;
+  border-radius: 14px;
+  border: 1px solid var(--border-color);
+}
+#overview-card .overview .overview-cards .card.balance {
+  background: #4e3bcf;
+  color: white;
+}
+#overview-card .overview .overview-cards .card .card-header {
+  display: flex;
+  gap: 9px;
+}
+#overview-card .overview .overview-cards .card .icon-section {
+  border: 1px solid var(--border-color);
+  border-radius: 100px;
+  padding: 8px;
+}
+#overview-card .overview .overview-cards .card .card-footer {
+  display: flex;
+  justify-content: space-between;
+}
+#overview-card .overview .overview-cards .card hr {
+  width: 293.5;
+  opacity: 0.2;
+  border-width: 1px;
+  margin: 21px 0;
+}
+#overview-card .overview .overview-cards .card .card-title {
+  font-weight: bold;
+}
+#overview-card .overview .overview-cards .card .card-subtitle {
+  font-size: 12px;
+  margin-top: 4px;
+  opacity: 0.6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#overview-card .overview .overview-cards .card .card-subtitle img {
+  width: 14px;
+  height: 14px;
+}
+#overview-card .overview .overview-cards .card .card-value {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+#overview-card .saving-plan {
+  flex: 1;
+  background: var(--white-color);
+  padding: 16px;
+  border-radius: 12px;
+}
+#overview-card .saving-plan .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+}
+#overview-card .saving-plan .header h2 {
+  margin: 0;
+}
+#overview-card .saving-plan .header a {
+  font-size: 16px;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+#overview-card .saving-plan hr {
+  width: 293.5;
+  opacity: 0.2;
+  border-width: 1px;
+  margin: 21px 0;
+}
+#overview-card .saving-plan .plan {
+  margin: 2rem 0;
+}
+#overview-card .saving-plan .plan .title {
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+}
+#overview-card .saving-plan .plan .title .target {
+  font-weight: 400;
+  color: #0D163A;
+  font-size: 12px;
+  opacity: 0.6;
+}
+#overview-card .saving-plan .plan .amount-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 12px 0;
+}
+#overview-card .saving-plan .plan .amount-section .amount {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}
+#overview-card .saving-plan .plan .amount-section .amount .sub-text {
+  font-weight: 400;
+  font-size: 12px;
+  opacity: 0.5;
+}
+#overview-card .saving-plan .plan .amount-section .percent.blue {
+  color: #4745A4;
+}
+#overview-card .saving-plan .plan .amount-section .percent.yellow {
+  color: #DD9802;
+}
+#overview-card .saving-plan .plan .amount-section .percent.green {
+  color: #3BBB6E;
+}
+#overview-card .saving-plan .plan .progress-bar {
+  background: #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 0.5rem;
+  height: 8px;
+}
+#overview-card .saving-plan .plan .progress-bar .progress {
+  height: 100%;
+  border-radius: 8px;
+}
+#overview-card .saving-plan .plan .progress-bar .progress.purple {
+  background: #6b5bcc;
+}
+#overview-card .saving-plan .plan .progress-bar .progress.yellow {
+  background: #ffc107;
+}
+#overview-card .saving-plan .plan .progress-bar .progress.green {
+  background: #16c784;
+}
+
 .overview-cards,
 .analytics,
-.saving-plan,
 .recent-transactions {
   background-color: var(--white-color);
   padding: 20px;
