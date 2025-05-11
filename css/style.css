@@ -28,7 +28,7 @@ body {
   width: 280px;
   height: 100vh;
   background-color: var(--white-color);
-  padding: 35px 20px 20px;
+  padding: 35px 20px 20px 0;
   box-sizing: border-box;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
   position: fixed;
@@ -40,6 +40,10 @@ body {
   flex: 1;
   padding: 20px;
   margin-left: 280px;
+}
+
+h2 {
+  font-size: 16px;
 }
 
 /* Sidebar styling */
@@ -69,14 +73,18 @@ body {
 
 .sidebar ul li {
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   margin-left: 0;
   display: flex;
   align-items: center;
-  padding: 15px 15px;
+  padding: 15px 25px;
   border-radius: 12px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+}
+
+.sidebar ul li:hover {
+  background-color: rgba(71, 69, 164, 0.0666666667);
 }
 
 .sidebar ul li.active::before {
@@ -146,14 +154,18 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 350px;
+  width: 380px;
   height: 64px;
 }
 
-.notification-icon {
+.notification-icon, .avatar-img {
   border-radius: 100px;
   border: 1px solid var(--border-color);
   padding: 12px;
+}
+
+.avatar-img {
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .user-detail {
@@ -165,10 +177,16 @@ body {
 
 /* End of Header styling */
 /* Overview card styling */
+.icon-section {
+  border: 1px solid var(--border-color);
+  border-radius: 100px;
+  padding: 8px 10px;
+}
+
 #overview-card {
-  display: flex;
-  gap: 2rem;
-  font-family: "Poppins", sans-serif;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
 }
 #overview-card .overview {
   flex: 2;
@@ -189,19 +207,15 @@ body {
   padding: 20px;
   border-radius: 14px;
   border: 1px solid var(--border-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 #overview-card .overview .overview-cards .card.balance {
-  background: #4e3bcf;
+  background: var(--primary-color);
   color: white;
 }
 #overview-card .overview .overview-cards .card .card-header {
   display: flex;
   gap: 9px;
-}
-#overview-card .overview .overview-cards .card .icon-section {
-  border: 1px solid var(--border-color);
-  border-radius: 100px;
-  padding: 8px 10px;
 }
 #overview-card .overview .overview-cards .card .card-footer {
   display: flex;
@@ -231,6 +245,11 @@ body {
 #overview-card .overview .overview-cards .card .card-value {
   font-size: 1.5rem;
   margin-top: 1rem;
+}
+#overview-card .overview .overview-cards .card:hover {
+  cursor: pointer;
+  transform: scale(1.03);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
 }
 #overview-card .saving-plan {
   flex: 1;
@@ -319,6 +338,93 @@ body {
   background: #16c784;
 }
 
+/* Transactions styling */
+.dashboard-grid {
+  display: flex;
+  gap: 1rem;
+  margin-top: 32px;
+}
+
+.analytics-card {
+  flex: 2;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 14px;
+}
+
+.transaction-card {
+  flex: 1;
+}
+
+/* Card styles */
+.analytics-card, .transaction-card {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 14px;
+}
+
+@media (min-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+.transaction-card .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+}
+.transaction-card .header h2 {
+  margin: 0;
+}
+.transaction-card .header a {
+  font-size: 16px;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.transaction-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 28px;
+}
+.transaction-header .text-section {
+  flex: 2;
+}
+.transaction-header .icon-section {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 12px;
+  margin-right: 9px;
+}
+.transaction-header .transaction .title {
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-size: 14px;
+}
+.transaction-header .transaction .metadata {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-weight: 400;
+  color: #0D163A;
+  font-size: 14px;
+  opacity: 0.6;
+}
+.transaction-header .transaction .metadata .status {
+  color: #3BBB6E;
+}
+
+hr {
+  width: 293.5;
+  opacity: 0.2;
+  border-width: 1px;
+  margin: 21px 0;
+}
+
 .overview-cards,
 .analytics,
 .recent-transactions {
@@ -326,6 +432,170 @@ body {
   padding: 20px;
   border-radius: 16px;
   margin-bottom: 20px;
+}
+
+/* Add to your style.css or in a <style> tag */
+#chart {
+  max-width: 900px;
+  margin: 20px auto;
+  height: 350px;
+}
+
+@media (max-width: 1024px) {
+  .overview-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .saving-plan .plan {
+    padding: 12px;
+  }
+  .saving-plan .amount-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+}
+/* Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+  .main-content {
+    margin-left: 0;
+    padding: 0 16px;
+  }
+  .hamburger-menu {
+    display: block;
+  }
+  .sidebar.active {
+    display: block;
+  }
+  #overview-card {
+    padding: 16px 12px;
+  }
+  .overview h2 {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+  .overview-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .card {
+    width: 100%;
+    border-radius: 12px;
+  }
+  .card .card-title {
+    font-size: 16px;
+  }
+  .card .card-subtitle span {
+    font-size: 12px;
+  }
+  .card .card-value {
+    font-size: 20px;
+  }
+  .saving-plan {
+    margin-top: 24px;
+  }
+  .saving-plan .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .saving-plan .plan {
+    padding: 14px 10px;
+  }
+  .saving-plan .title {
+    font-size: 16px;
+  }
+  .saving-plan .target {
+    display: block;
+    font-size: 13px;
+    margin-top: 4px;
+  }
+  .saving-plan .amount-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  .saving-plan .amount {
+    font-size: 16px;
+  }
+  .saving-plan .percent {
+    font-size: 14px;
+  }
+  .saving-plan .progress-bar {
+    height: 8px;
+  }
+}
+/* Extra Small (max-width: 480px) */
+@media (max-width: 480px) {
+  .sidebar {
+    display: none;
+  }
+  .main-content {
+    margin-left: 0;
+    padding: 10px;
+  }
+  .hamburger-menu {
+    display: block;
+  }
+  .sidebar.active {
+    display: block;
+  }
+  .card .card-footer img {
+    width: 16px;
+  }
+  .saving-plan .plan {
+    padding: 10px 8px;
+  }
+  .saving-plan .amount {
+    font-size: 15px;
+  }
+  .saving-plan .percent {
+    font-size: 13px;
+  }
+  .saving-plan .title {
+    font-size: 15px;
+  }
+}
+@media (max-width: 1024px) {
+  #overview-card {
+    grid-template-columns: 1fr; /* Stack the cards on medium screens */
+  }
+}
+/* Dashboard Grid Styling */
+.dashboard-grid {
+  display: flex;
+  gap: 1rem;
+  margin-top: 32px;
+  flex-wrap: wrap; /* Allow for wrapping of items in smaller screens */
+}
+
+.analytics-card, .transaction-card {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 14px;
+  flex: 1 1 calc(50% - 1rem); /* Two columns layout by default */
+}
+
+@media (max-width: 1024px) {
+  .dashboard-grid {
+    flex-direction: column; /* Stack cards vertically on smaller screens */
+  }
+  .analytics-card, .transaction-card {
+    flex: 1 1 100%; /* Take full width on smaller screens */
+  }
+}
+@media (max-width: 768px) {
+  .dashboard-grid {
+    flex-direction: column; /* Stack items vertically on mobile */
+  }
+  .analytics-card, .transaction-card {
+    flex: 1 1 100%; /* Ensure full width on mobile */
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
