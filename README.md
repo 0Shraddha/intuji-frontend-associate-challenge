@@ -9,16 +9,7 @@ I've integrated ApexCharts to create interactive and responsive data. The websit
 ![Project-Preview-Image](/assets/images/logo/project-preview.jpeg)
 
 ## Folder Structure
-project/
-├── assets/
-│   └── images/
-│       └── icons/
-│       └── logo/
-├── components/
-├── css/
-├── js/
-├── index.html
-└── README.md
+<pre> ```plaintext project/ ├── assets/ │ └── images/ │ ├── icons/ │ └── logo/ ├── components/ ├── css/ ├── js/ ├── index.html └── README.md ``` </pre>
 
 ## Getting Started
 
